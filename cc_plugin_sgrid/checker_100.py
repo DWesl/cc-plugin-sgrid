@@ -11,7 +11,7 @@ class Sge(Exception):
 
 class SgridChecker100(SgridChecker):
 
-    _cc_spec_version = '1.0.0'
+    _cc_spec_version = '0.3'
     _cc_description = 'SGRID {} compliance-checker'.format(_cc_spec_version)
 
     METHODS_REGEX = re.compile('(\w+: *\w+) \((\w+: *\w+)\) *')
