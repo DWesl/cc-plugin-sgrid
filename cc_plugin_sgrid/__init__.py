@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 import os
 import logging
-from compliance_checker.base import BaseNCCheck, Result
+from compliance_checker.base import BaseNCCheck, Result, BaseCheck
 
 try:
     with open(os.path.join(os.path.dirname(os.path.dirname(__file__)), 'VERSION')) as f:
@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 logger.addHandler(logging.NullHandler())
 
 
-class SgridChecker(BaseNCCheck):
+class SgridChecker(BaseNCCheck, BaseCheck):
     _cc_spec = 'SGRID'
     _cc_url = 'https://github.com/ioos/cc-plugin-sgrid'
     _cc_author = 'Kyle Wilcox <kyle@axiomdatascience.com>'
