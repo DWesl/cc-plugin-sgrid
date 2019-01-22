@@ -4,8 +4,14 @@ import os
 import logging
 from compliance_checker.base import BaseNCCheck, Result
 
-with open(os.path.join(os.path.dirname(os.path.dirname(__file__)), 'VERSION')) as f:
-    __version__ = f.read().strip()
+try:
+    with open(os.path.join(os.path.dirname(os.path.dirname(__file__)), 'VERSION')) as f:
+        __version__ = f.read().strip()
+except OSError:
+    import glob
+    dist_info = glob.glob(os.path.join(os.path.dirname(os.path.dirname(__file__)), "cc_plugin_sgrid*.dist-info"))[0]
+    __version__ = os.path.basename(dist_info)[15:-10]
+    del glob, dist_info
 
 logger = logging.getLogger(__name__)
 logger.addHandler(logging.NullHandler())
