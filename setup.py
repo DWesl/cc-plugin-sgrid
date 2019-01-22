@@ -37,7 +37,7 @@ setup(
         ],
     entry_points         = {
         'compliance_checker.suites': [
-            'sgrid-1.0 = cc_plugin_sgrid.checker_10:SgridChecker10',
+            'sgrid-0.3 = cc_plugin_sgrid.checker_10:SgridChecker10',
         ]
     }
 )
